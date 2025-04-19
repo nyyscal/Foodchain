@@ -7,6 +7,11 @@ import Footer from './components/Footer'
 import Login from './components/Login'
 import { useAppContext } from './context/appContext'
 import AllProducts from './pages/AllProducts'
+import ProductCategory from './pages/ProductCategory'
+import ProductDetails from './pages/ProductDetails'
+import Cart from './pages/Cart'
+import AddAddress from './pages/AddAddress'
+import MyOrders from './pages/MyOrders.JSX'
 const App = () => {
   const isSellerPath = useLocation().pathname.includes("seller")
   const {showUserLogin} = useAppContext()
@@ -19,6 +24,11 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/products" element={<AllProducts/>}/>
+        <Route path="/cart" element={<Cart/>}/>
+        <Route path="/products/:category" element={<ProductCategory/>}/>
+        <Route path="/products/:category/:id" element={<ProductDetails/>}/>
+        <Route path="/add-address" element={<AddAddress/>}/>
+        <Route path="/my-orders" element={<MyOrders/>}/>
       </Routes>
      </div>
      {isSellerPath ? null : <Footer/>}
